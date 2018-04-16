@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
 var ProductRoutes = require('./routes/ProductRoutes');
 var OrderRoutes = require('./routes/OrderRoutes');
 
+mongoose.connect('mongodb://localhost/nodeshop');
 app.use(morgan('dev'));
 
 // parse application/x-www-form-urlencoded
